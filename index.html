@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="style.css">
+<title>Home</title>
+</head>
+
 <body>
 
 <nav>
@@ -12,32 +19,29 @@
 
 <section class="hero">
   <h1>Platform Engineer</h1>
-  <p>AKS | Terraform | GitOps | Multi-Tenant Kubernetes</p>
-  <div class="badge">35 LOBs • 494 Tenants • 200K Requests/day</div>
+  <p>AKS | Terraform | GitOps</p>
+  <div class="badge">494 Tenants • 35 LOBs</div>
 </section>
 
 <section class="section">
+<h2>🚀 Live Platform Dashboard</h2>
 
-<h2>🚀 Impact</h2>
-
-<div class="grid">
-  <div class="card"><div class="highlight">40%</div>Deployment Success</div>
-  <div class="card"><div class="highlight">25%</div>Downtime Reduction</div>
-  <div class="card"><div class="highlight">60%</div>Manual Effort Reduced</div>
-  <div class="card"><div class="highlight">15%</div>Cost Optimization</div>
+<div class="dashboard">
+  <div class="metric">Clusters<br><span id="clusters">0</span></div>
+  <div class="metric">Pods<br><span id="pods">0</span></div>
+  <div class="metric">Requests (K)<br><span id="requests">0</span></div>
 </div>
-
 </section>
 
 <section class="section">
+<h2>🔥 Challenges Solved</h2>
 
-<h2>🏗 Platform Overview</h2>
-
-<div class="card">
-Built and operated enterprise AKS platform across multiple tenants with GitOps automation,
-multi-region architecture, and secure deployments.
-</div>
+<div class="card">Multi-tenant isolation across 494 tenants</div>
+<div class="card">GitOps automation reducing manual effort</div>
+<div class="card">Multi-region disaster recovery</div>
 
 </section>
 
+<script src="script.js"></script>
 </body>
+</html>
