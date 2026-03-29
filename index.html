@@ -1,179 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Sathish Katakam | DevOps Portfolio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<style>
-body {
-  margin: 0;
-  font-family: "Segoe UI", Arial;
-  background: #020617;
-  color: #e2e8f0;
-}
-
-header {
-  padding: 70px 20px;
-  text-align: center;
-  background: linear-gradient(135deg,#0f172a,#020617);
-}
-
-h1 { font-size: 42px; margin: 0; }
-h2 { color: #38bdf8; }
-
-.section {
-  padding: 60px 20px;
-  max-width: 1100px;
-  margin: auto;
-}
-
-.card {
-  background: #0f172a;
-  padding: 25px;
-  margin: 20px 0;
-  border-radius: 12px;
-  border: 1px solid #1e293b;
-}
-
-.metrics {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-.metric {
-  background: #38bdf8;
-  color: black;
-  padding: 10px 15px;
-  border-radius: 20px;
-  font-weight: bold;
-}
-
-a {
-  color: #38bdf8;
-  text-decoration: none;
-}
-
-.tag {
-  display: inline-block;
-  background: #1e293b;
-  padding: 6px 12px;
-  margin: 5px;
-  border-radius: 20px;
-  font-size: 13px;
-}
-</style>
+  <meta charset="UTF-8">
+  <title>Sathish Katakam | DevOps Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({ startOnLoad: true });</script>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #020617; color: #e2e8f0; }
+    header { text-align: center; padding: 60px 20px; background: linear-gradient(135deg,#020617,#0f172a); }
+    h1 { font-size: 40px; margin-bottom: 10px; }
+    section { padding: 50px; max-width: 1100px; margin: auto; }
+    h2 { color: #38bdf8; margin-bottom: 20px; }
+    .card { background: #0f172a; padding: 25px; border-radius: 15px; margin-bottom: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 20px; }
+    footer { text-align: center; padding: 20px; background: #020617; }
+    a { color: #38bdf8; }
+    .mermaid { background:#020617; padding:20px; border-radius:10px; }
+  </style>
 </head>
-
 <body>
 
 <header>
   <h1>Sathish Katakam</h1>
-  <p>Senior DevOps Engineer | Azure | AKS | Terraform | CI/CD | Platform Engineering</p>
+  <p>Senior DevOps Engineer | AKS | Terraform | GitOps | Platform Engineering</p>
 </header>
 
-<div class="section">
-  <h2>Impact & Scale</h2>
-  <div class="metrics">
-    <div class="metric">40% Deployment Success ↑</div>
-    <div class="metric">30% Faster Releases</div>
-    <div class="metric">25% Downtime ↓</div>
-    <div class="metric">15% Cost Optimization</div>
-    <div class="metric">200K+ Daily Requests</div>
-    <div class="metric">20+ AKS Clusters</div>
-    <div class="metric">300+ Nodes Managed</div>
-  </div>
-</div>
-
-<div class="section">
-  <h2>Core Expertise</h2>
-  <div>
-    <span class="tag">Azure (AKS)</span>
-    <span class="tag">Terraform</span>
-    <span class="tag">Kubernetes</span>
-    <span class="tag">Docker</span>
-    <span class="tag">GitHub Actions</span>
-    <span class="tag">Jenkins</span>
-    <span class="tag">ArgoCD</span>
-    <span class="tag">Helm</span>
-    <span class="tag">AWS</span>
-    <span class="tag">Grafana</span>
-    <span class="tag">Vault</span>
-  </div>
-</div>
-
-<div class="section">
-  <h2>Platform Engineering Experience</h2>
-
+<section>
+  <h2>AKS Platform Architecture</h2>
   <div class="card">
-    <h3>Enterprise AKS Platform</h3>
-    <p>
-      Designed and operated Kubernetes platform across 20+ clusters (300+ nodes),
-      supporting 20+ business applications handling 200K+ daily requests.
-    </p>
-    <p>
-      Architected multi-region deployment (Azure East US2 & Central US) with
-      high availability and disaster recovery.
-    </p>
+    <div class="mermaid">
+flowchart TD
+A[Architect Review Board] --> B[Terraform Landing Zone]
+B --> C[AKS Cluster]
+C --> D[Namespaces]
+D --> E[Istio Service Mesh]
+D --> F[Vault Secrets]
+    </div>
   </div>
+</section>
 
+<section>
+  <h2>GitOps Deployment Flow</h2>
   <div class="card">
-    <h3>Terraform Landing Zones</h3>
-    <p>
-      Built reusable infrastructure modules supporting Dev, QA, UAT, and Production
-      environments, enabling scalable and standardized cloud provisioning.
-    </p>
+    <div class="mermaid">
+flowchart LR
+Dev[Developer] --> Git[GitHub Repo]
+Git --> Argo[ArgoCD]
+Argo --> AKS[AKS Cluster]
+AKS --> DevEnv[Dev Auto]
+AKS --> UAT[UAT Controlled]
+AKS --> Prod[Prod Manual Approval]
+    </div>
   </div>
+</section>
 
+<section>
+  <h2>Multi-Region Architecture</h2>
   <div class="card">
-    <h3>CI/CD & GitOps Automation</h3>
-    <p>
-      Implemented CI/CD pipelines using Jenkins, GitHub Actions, and GitLab CI.
-      Integrated ArgoCD for GitOps-based deployments, reducing manual effort by 60%.
-    </p>
+    <div class="mermaid">
+flowchart TD
+TM[Traffic Manager] --> A1[East US2 - Active]
+TM --> B1[Central US - Passive]
+A1 --> AKS1[AKS Cluster]
+B1 --> AKS2[AKS Cluster]
+    </div>
   </div>
+</section>
 
-</div>
-
-<div class="section">
-  <h2>Featured Project</h2>
-
+<section>
+  <h2>Disaster Recovery</h2>
   <div class="card">
-    <h3>End-to-End CI/CD Pipeline</h3>
-    <p>
-      Designed CI/CD workflows integrating Jenkins and GitHub Actions for automated
-      build, test, and deployment pipelines.
-    </p>
-
-    <p><b>Tech Stack:</b></p>
-    <p>Jenkins | GitHub Actions | Docker | Kubernetes (AKS)</p>
-
-    <p>
-      🔗 <a href="https://github.com/sathish-katakam/cicdpipeline" target="_blank">
-      View GitHub Repository
-      </a>
-    </p>
+    <div class="mermaid">
+flowchart TD
+Fail[Failure] --> App[App Failure]
+Fail --> Cluster[Cluster Failure]
+Fail --> Data[Data Loss]
+Fail --> Region[Region Failure]
+App --> ArgoRollback[ArgoCD Rollback]
+Cluster --> Terraform[Terraform Recreate]
+Cluster --> ArgoSync[ArgoCD Sync]
+Data --> Backup[Backup Restore]
+Region --> Failover[Traffic Switch]
+    </div>
   </div>
+</section>
 
-</div>
+<section>
+  <h2>Key Achievements</h2>
+  <div class="grid">
+    <div class="card">40% Deployment Success Improvement</div>
+    <div class="card">25% Downtime Reduction</div>
+    <div class="card">15% Cost Optimization</div>
+    <div class="card">300+ Nodes Managed</div>
+  </div>
+</section>
 
-<div class="section">
-  <h2>Certifications</h2>
-  <p>
-    Azure DevOps Engineer Expert (AZ-400) <br>
-    Azure Administrator (AZ-104) <br>
-    ITIL Foundation <br>
-    Generative AI Leader (Google)
-  </p>
-</div>
+<section>
+  <h2>GitHub</h2>
+  <div class="card">
+    <a href="https://github.com/sathish-katakam" target="_blank">View My GitHub Projects</a>
+  </div>
+</section>
 
-<div class="section">
-  <h2>Contact</h2>
-  <p>Email: sathish.katakam@gmail.com</p>
-  <p>LinkedIn: linkedin.com/in/sathish-katakam</p>
-  <p>GitHub: github.com/sathish-katakam</p>
-</div>
+<footer>
+  <p>© 2026 Sathish Katakam</p>
+</footer>
 
 </body>
 </html>
