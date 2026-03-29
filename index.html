@@ -1,111 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Sathish Katakam | DevOps Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-  <script>mermaid.initialize({ startOnLoad: true });</script>
-  <style>
-    body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #020617; color: #e2e8f0; }
-    header { text-align: center; padding: 60px 20px; background: linear-gradient(135deg,#020617,#0f172a); }
-    h1 { font-size: 40px; margin-bottom: 10px; }
-    section { padding: 50px; max-width: 1100px; margin: auto; }
-    h2 { color: #38bdf8; margin-bottom: 20px; }
-    .card { background: #0f172a; padding: 25px; border-radius: 15px; margin-bottom: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 20px; }
-    footer { text-align: center; padding: 20px; background: #020617; }
-    a { color: #38bdf8; }
-    .mermaid { background:#020617; padding:20px; border-radius:10px; }
-  </style>
-</head>
 <body>
 
-<header>
-  <h1>Sathish Katakam</h1>
-  <p>Senior DevOps Engineer | AKS | Terraform | GitOps | Platform Engineering</p>
-</header>
-
-<section>
-  <h2>AKS Platform Architecture</h2>
-  <div class="card">
-    <div class="mermaid">
-flowchart TD
-A[Architect Review Board] --> B[Terraform Landing Zone]
-B --> C[AKS Cluster]
-C --> D[Namespaces]
-D --> E[Istio Service Mesh]
-D --> F[Vault Secrets]
-    </div>
+<nav>
+  <b>Sathish</b>
+  <div>
+    <a href="projects.html">Projects</a>
+    <a href="architecture.html">Architecture</a>
+    <a href="journey.html">Journey</a>
+    <a href="contact.html">Contact</a>
   </div>
+</nav>
+
+<section class="hero">
+  <h1>Platform Engineer</h1>
+  <p>AKS | Terraform | GitOps | Multi-Tenant Kubernetes</p>
+  <div class="badge">35 LOBs • 494 Tenants • 200K Requests/day</div>
 </section>
 
-<section>
-  <h2>GitOps Deployment Flow</h2>
-  <div class="card">
-    <div class="mermaid">
-flowchart LR
-Dev[Developer] --> Git[GitHub Repo]
-Git --> Argo[ArgoCD]
-Argo --> AKS[AKS Cluster]
-AKS --> DevEnv[Dev Auto]
-AKS --> UAT[UAT Controlled]
-AKS --> Prod[Prod Manual Approval]
-    </div>
-  </div>
+<section class="section">
+
+<h2>🚀 Impact</h2>
+
+<div class="grid">
+  <div class="card"><div class="highlight">40%</div>Deployment Success</div>
+  <div class="card"><div class="highlight">25%</div>Downtime Reduction</div>
+  <div class="card"><div class="highlight">60%</div>Manual Effort Reduced</div>
+  <div class="card"><div class="highlight">15%</div>Cost Optimization</div>
+</div>
+
 </section>
 
-<section>
-  <h2>Multi-Region Architecture</h2>
-  <div class="card">
-    <div class="mermaid">
-flowchart TD
-TM[Traffic Manager] --> A1[East US2 - Active]
-TM --> B1[Central US - Passive]
-A1 --> AKS1[AKS Cluster]
-B1 --> AKS2[AKS Cluster]
-    </div>
-  </div>
-</section>
+<section class="section">
 
-<section>
-  <h2>Disaster Recovery</h2>
-  <div class="card">
-    <div class="mermaid">
-flowchart TD
-Fail[Failure] --> App[App Failure]
-Fail --> Cluster[Cluster Failure]
-Fail --> Data[Data Loss]
-Fail --> Region[Region Failure]
-App --> ArgoRollback[ArgoCD Rollback]
-Cluster --> Terraform[Terraform Recreate]
-Cluster --> ArgoSync[ArgoCD Sync]
-Data --> Backup[Backup Restore]
-Region --> Failover[Traffic Switch]
-    </div>
-  </div>
-</section>
+<h2>🏗 Platform Overview</h2>
 
-<section>
-  <h2>Key Achievements</h2>
-  <div class="grid">
-    <div class="card">40% Deployment Success Improvement</div>
-    <div class="card">25% Downtime Reduction</div>
-    <div class="card">15% Cost Optimization</div>
-    <div class="card">300+ Nodes Managed</div>
-  </div>
-</section>
+<div class="card">
+Built and operated enterprise AKS platform across multiple tenants with GitOps automation,
+multi-region architecture, and secure deployments.
+</div>
 
-<section>
-  <h2>GitHub</h2>
-  <div class="card">
-    <a href="https://github.com/sathish-katakam" target="_blank">View My GitHub Projects</a>
-  </div>
 </section>
-
-<footer>
-  <p>© 2026 Sathish Katakam</p>
-</footer>
 
 </body>
-</html>
