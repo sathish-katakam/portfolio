@@ -1,157 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
 <title>Architecture</title>
 
-<link rel="stylesheet" href="style.css">
-
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-<script>
-  mermaid.initialize({ startOnLoad: true, theme: "dark" });
-</script>
-
-<style>
-.arch-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-  gap: 15px;
-}
-
-.arch-box {
-  padding: 20px;
-  background: rgba(15,23,42,0.6);
-  border-radius: 12px;
-  text-align: center;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.arch-box:hover {
-  transform: translateY(-5px) scale(1.05);
-  background: #1e293b;
-}
-
-.info-box {
-  margin-top: 20px;
-  padding: 20px;
-  background: #0f172a;
-  border-radius: 12px;
-  display: none;
-}
-</style>
-
+<script>mermaid.initialize({ startOnLoad: true });</script>
 </head>
 
 <body>
 
 <nav>
-  <b>Sathish Katakam</b>
-  <div>
-    <a href="index.html">Home</a>
-    <a href="projects.html">Projects</a>
-    <a href="journey.html">Journey</a>
-  </div>
+  <a href="index.html">Home</a>
 </nav>
 
 <div class="section">
 
-<!-- 🔥 SCALE BADGE -->
+<h1>AKS Platform Architecture</h1>
+
 <div class="card" style="text-align:center;">
-  <b>35 LOBs • 494 Tenants • 20+ AKS Clusters • 300+ Nodes</b>
+<img src="Kubenetes Diagram.jpg" style="width:90%;">
 </div>
 
-<!-- 🔥 HERO IMAGE -->
-<section>
-  <h2>🚀 End-to-End AKS Platform</h2>
+<h2>Interactive Components</h2>
 
-  <div class="card" style="text-align:center;">
-    <img src="Kubenetes Diagram.jpg"
-         style="width:90%; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.5);">
+<div class="arch-grid">
+<div class="arch-box" onclick="showInfo('Terraform provisions infrastructure')">Terraform</div>
+<div class="arch-box" onclick="showInfo('AKS runs workloads')">AKS</div>
+<div class="arch-box" onclick="showInfo('Namespaces isolate tenants')">Namespaces</div>
+<div class="arch-box" onclick="showInfo('ArgoCD handles GitOps')">ArgoCD</div>
+<div class="arch-box" onclick="showInfo('Vault secures secrets')">Vault</div>
+</div>
 
-    <p style="margin-top:10px; color:#94a3b8;">
-      Multi-tenant AKS platform with GitOps, Vault security, and multi-region DR.
-    </p>
-  </div>
-</section>
+<div id="info" class="info-box"></div>
 
-<!-- 🔥 INTERACTIVE ARCH -->
-<section>
-  <h2>🧠 Explore Architecture</h2>
+<h2>GitOps Flow</h2>
 
-  <div class="arch-grid">
-
-    <div class="arch-box" onclick="showInfo('Terraform provisions landing zones including AKS, VNet, IAM.')">
-      Terraform Landing Zone
-    </div>
-
-    <div class="arch-box" onclick="showInfo('AKS clusters run workloads across multiple tenants.')">
-      AKS Cluster
-    </div>
-
-    <div class="arch-box" onclick="showInfo('Namespaces isolate tenants securely.')">
-      Namespaces
-    </div>
-
-    <div class="arch-box" onclick="showInfo('ArgoCD enables GitOps-based deployments.')">
-      ArgoCD
-    </div>
-
-    <div class="arch-box" onclick="showInfo('Vault manages secrets securely.')">
-      Vault
-    </div>
-
-    <div class="arch-box" onclick="showInfo('Istio controls traffic and security policies.')">
-      Istio Service Mesh
-    </div>
-
-  </div>
-
-  <div id="info" class="info-box"></div>
-
-</section>
-
-<!-- 🔁 GITOPS -->
-<section>
-  <h2>⚙️ GitOps Deployment Flow</h2>
-
-  <div class="card">
-    <div class="mermaid">
+<div class="card">
+<div class="mermaid">
 flowchart LR
-Dev --> Git --> Build --> Scan --> ACR --> ArgoCD --> AKS
-AKS --> DevQA
-AKS --> Prod
-    </div>
-  </div>
-</section>
+Dev --> Git --> Build --> ACR --> ArgoCD --> AKS
+</div>
+</div>
 
-<!-- 🌍 DR -->
-<section>
-  <h2>🌍 Disaster Recovery</h2>
+<h2>Disaster Recovery</h2>
 
-  <div class="card">
-    <div class="mermaid">
+<div class="card">
+<div class="mermaid">
 flowchart TD
-Failure --> AppFail
-Failure --> ClusterFail
-Failure --> RegionFail
-
-AppFail --> Rollback
-ClusterFail --> Recreate
-RegionFail --> TrafficSwitch
-    </div>
-  </div>
-</section>
+Failure --> Rollback
+Failure --> Recreate
+Failure --> Failover
+</div>
+</div>
 
 </div>
 
-<script>
-function showInfo(text) {
-  const box = document.getElementById("info");
-  box.style.display = "block";
-  box.innerText = text;
-}
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
