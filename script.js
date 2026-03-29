@@ -1,4 +1,3 @@
-// fake live metrics
 function animate(id, end) {
   let i = 0;
   let interval = setInterval(() => {
@@ -9,9 +8,15 @@ function animate(id, end) {
 }
 
 window.onload = () => {
-  if (document.getElementById("pods")) {
-    animate("pods", 300);
+  if (document.getElementById("clusters")) {
     animate("clusters", 20);
+    animate("pods", 300);
     animate("requests", 200);
   }
 };
+
+function showInfo(text) {
+  const box = document.getElementById("info");
+  box.style.display = "block";
+  box.innerText = text;
+}
